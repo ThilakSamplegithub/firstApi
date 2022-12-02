@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="#main"></div>
+    <!-- <ul></ul> -->
+    <ol></ol>
+</body>
+</html>
+<script>
+//    let p=document.createElement('p')
+let app=document.getElementById('main')
+// localStorage.setItem('br',json.stringify())
+   let f=fetch("https://jsonplaceholder.typicode.com/todos")
+   .then((response)=>response.json())
+   .then((data)=>data.filter((el)=>el.completed===false))
+   .then((data)=>{
+    data.forEach((users)=>{
+        
+        const markUp=`<li>${JSON.stringify(users)}</li>`
+        document.querySelector('ol').insertAdjacentHTML('beforeend',markUp)
+ 
+    })
+   })
+//    data.filter((el)=>el.completed===false
+//    .then(data=>{
+//    data.forEach(users=>{
+//     const markUp=`<p>${users}<p>`
+//         /
+//         document.getElementById('main').insertAdjacentElement('beforeend',markUp)
+//    })
+//    })
+//    console.log(document.querySelector('div').innerHTML)
+</script>
